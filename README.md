@@ -16,7 +16,7 @@ functions defined with type annotations like this:
 from pyspark.sql import DataFrame
 
 def get_name_from_id(dt: DataFrame) -> DataFrame:
-    ...
+    pass
 ```
 
 But this type annotation only guarantees that a DataFrame instance is called.
@@ -33,8 +33,9 @@ You also get self-documenting code in form of expressive annotations.
 
 # How to use it
 
-```py
+## defining type annotations
 
+```py
 from typed_pyspark import Dataframe
 
 reviewTable = Dataframe(
@@ -68,14 +69,15 @@ Daily_Reviews = Dataframe( schema={
 
 Daily_ReviewsType = Daily_Reviews.type_annotation()
 
-
-# defining type annotations
 def calculate_daily_review_data(
-    date_begin: date, date_end: date, reviews: ReviewTableType
+    date_begin, date_end, reviews: ReviewTableType
 ) -> Daily_ReviewsType:
-    ...
+    pass
+```
 
-# writing tests
+## writing tests
+
+```py
 def test_dates_are_filtered():
     reviews_df = ReviewTable.create_df(
         [
