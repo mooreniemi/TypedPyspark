@@ -15,5 +15,5 @@ setuptools.setup(
     url="https://github.com/getyourguide/TypedPyspark",
     packages=setuptools.find_packages(),
     install_requires=[],
-    package_data={},
+    package_data={"typed_pyspark": ["py.typed"]},
 )
